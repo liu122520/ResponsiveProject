@@ -1,0 +1,14 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.row #col-num .thumbnail{
+	float: left;
+}
+.row #col-num .thumbnail .caption #caption-h3{
+	width: 290px;
+	/*width: 40%;*/
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
