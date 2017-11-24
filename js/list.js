@@ -6,12 +6,21 @@ $.get("http://h6.duchengjiu.top/shop/api_cat.php",function(response){
 		$("#dropdown-menu").append('<li style="background: #C0C0C0; "><a href="list.html?cat_id='+obj.data[i].cat_id+'">' + obj.data[i].cat_name + '</a></li>');				
 	}
 })
+
+//通过url内容，得到分类id，查询分类商品，并展示到页面中
+		var str = location.search.substr(1);
+		console.log(str)
+		var catId = str.split("=");
+		console.log(catId)
 //商品
-function showShop(page){
+
 	$.ajax({
 	type:"GET",
+	data:{
+		"cat_id":catId[1]
+	},
 	"dataType": "json",
-	url:"http://h6.duchengjiu.top/shop/api_goods.php?page="+page+"&pagesize=12",
+	url:"http://h6.duchengjiu.top/shop/api_goods.php?page=1&pagesize=12",
 	success:function(response){
 			var obj = response;
 //			console.log(obj);
@@ -22,40 +31,40 @@ function showShop(page){
 						+obj.data[i].goods_name+
 						'</h3><p style="height:40px">'
 						+obj.data[i].goods_desc+
-						'</p><p><a href="wupinxiangqing" class="btn btn-primary" role="button">物品详情</a><a href="#" class="btn btn-default" role="button" style="float:right">添加到购物车</a></p></div></div></div>')
+						'</p><p><a href="wupinxiangqing" class="btn btn-primary" role="button">物品详情</a><a href="#" class="btn btn-default" role="button" style="float:right;background:black; color:white">添加到购物车</a></p></div></div></div>')
 				}
 		//将全局信号量的锁变为true
-		lock = true;
+//		lock = true;
 	}
 })
-}
-//	懒加载
-	var page = 1;
-	showShop(page);
-	var lock = true;
-	//窗口的卷动事件监听，一定要函数截流，因为这个事儿很“敏感”
-	$(window).scroll(function(){
-//				console.log(1);
-		//函数截流
-		if(!lock) return;
-//				console.log($(window).height() );  //window的高度
-//				console.log($(window).scrollTop() ); //滚动条的值
-//				console.log($(document).height()); //document的高度
-		
-		var A = $(window).scrollTop();
-		var B = $(window).height();
-		var C = $(document).height();
-		
-		var rate = A / ( C - B );
-//		console.log(rate);  //得到比例
-		
-		if(rate >= 0.7){
-			page++;	//信号量++
-			showShop(page);
-			//函数截流，每次触发的时候要把锁置为false
-			lock = false;
-		}
-	})
+
+////	懒加载
+//	var page = 1;
+//	showShop(page);
+//	var lock = true;
+//	//窗口的卷动事件监听，一定要函数截流，因为这个事儿很“敏感”
+//	$(window).scroll(function(){
+////				console.log(1);
+//		//函数截流
+//		if(!lock) return;
+////				console.log($(window).height() );  //window的高度
+////				console.log($(window).scrollTop() ); //滚动条的值
+////				console.log($(document).height()); //document的高度
+//		
+//		var A = $(window).scrollTop();
+//		var B = $(window).height();
+//		var C = $(document).height();
+//		
+//		var rate = A / ( C - B );
+////		console.log(rate);  //得到比例
+//		
+//		if(rate >= 0.7){
+//			page++;	//信号量++
+//			showShop(page);
+//			//函数截流，每次触发的时候要把锁置为false
+//			lock = false;
+//		}
+//	})
 //	返回顶部
 $("#stick").click(function(){
 	$("body,html").animate({scrollTop:0})

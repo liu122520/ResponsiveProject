@@ -7,14 +7,10 @@
 		<link rel="stylesheet" href="../css/header、foot.css" />
 	</head>
 	<body>
-		
-		 <!--<iframe id="iframe" src="http://www.jq22.com/demo/CanvasParticles-master20160907" frameborder="0"  width="100%" height="1200px">
-       	  </iframe>-->
-       	 
+			  
 		<!--导航条-->
 		<nav class="navbar navbar-default" style="background:black;">		 
 		  <div class="container-fluid">
-		    <!-- Brand and toggle get grouped for better mobile display -->
 		    <div class="navbar-header">
 		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 		        <span class="sr-only">Toggle navigation</span>
@@ -25,29 +21,22 @@
 		      <a class="navbar-brand" href="index.html" style="color: white;">logo</a>
 		    </div>
 		
-		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav" >
 		        <li class="active" ><a href="#" style="background: #222222; color: white;">首页 <span class="sr-only">(current)</span></a></li>
-		        <!--<li><a href="#">商品</a></li>-->
+		        <li class="active-Btn"></li>
 		        <li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">商品列表<span class="caret"></span></a>
 		          <ul class="dropdown-menu" id="dropdown-menu">
-		            <!--<li><a href="#">Action</a></li>
-		            <li><a href="#">Another action</a></li>
-		            <li><a href="#">Something else here</a></li>
-		            <li role="separator" class="divider"></li>
-		            <li><a href="#">Separated link</a></li>
-		            <li role="separator" class="divider"></li>
-		            <li><a href="#">One more separated link</a></li>-->
+		            
 		          </ul>
 		        </li>
 		      </ul>
 		      <form class="navbar-form navbar-left">
-		        <div class="form-group">
-		          <input type="text" class="form-control" placeholder="请输入物品名称">
-		        </div>
-		        <button type="submit" class="btn btn-default" style="color: black;">搜索</button>
+		        <p class="search"> 
+					<input type="text" id="search"/>
+					<input type="button" id="Btn" value="搜索"/>
+				</p>
 		      </form>
 		      <ul class="nav navbar-nav navbar-right">
 		        <li><a href="login.html" style="color: white;">登录</a></li>
@@ -55,21 +44,17 @@
 		        <li class="dropdown">
 		          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">购物车（0）<span class="caret"></span></a>
 		          <ul class="dropdown-menu">
-		            <!--<li><a href="#">Action</a></li>
-		            <li><a href="#">Another action</a></li>
-		            <li><a href="#">Something else here</a></li>
-		            <li role="separator" class="divider"></li>
-		            <li><a href="#">Separated link</a></li>-->
+		         
 		          </ul>
 		        </li>
 		      </ul>
-		    </div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
+		    </div>
+		  </div>
 		</nav>
 		
 			
 		<!--轮播图-->
-		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-top: 50px;">
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 		  <!-- Indicators -->
 		  <ol class="carousel-indicators">
 		    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -103,36 +88,26 @@
 		  <!-- Controls -->
 		  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
 		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-		    <span class="sr-only">Previous</span>
+		    <!--<span class="sr-only">Previous</span>-->
 		  </a>
 		  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
 		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-		    <span class="sr-only">Next</span>
+		    <!--<span class="sr-only">Next</span>-->
 		  </a>
 		</div>
 		
 		<!--热门商品-->
 		<div class="container-fluid">
 			<div class="row" id="col-num">
-			  <!--<div class="col-sm-6 col-md-4 col-lg-3">-->
-			    <!--<div class="thumbnail">
-				      <img src="..." alt="...">
-				      <div class="caption" >
-				        <h3>Thumbnail label</h3>
-				        <p>...</p>
-				        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-				      </div>
-			    </div>-->
-			  <!--</div>-->
 			</div>
 		</div>
-	
+
 		<!--返回顶部-->
 		<div id="stick"><</div>
 	</body>
 	<script src="../js/jquery-3.2.1.js"></script>
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../js/header、foot.js"></script>
+	<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
 		
 	
 </html>

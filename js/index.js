@@ -3,7 +3,7 @@ $.get("http://h6.duchengjiu.top/shop/api_cat.php",function(response){
 //			console.log(response);
 	var obj = response;
 	for(var i=0;i<obj.data.length;i++){				
-		$("#dropdown-menu").append('<li style="background: #C0C0C0; "><a href="list.html?cat_id='+obj.data[i].cat_id+'">' + obj.data[i].cat_name + '</a></li>');				
+		$("#dropdown-menu").append('<li id="dropdown-menu-li" style="background:black;"><a style="color:white;text-align:center;border:1px solid white" href="list.html?cat_id='+obj.data[i].cat_id+'">' + obj.data[i].cat_name + '</a></li>');
 	}
 })
 //商品
@@ -11,7 +11,7 @@ function showShop(page){
 	$.ajax({
 	type:"GET",
 	"dataType": "json",
-	url:"http://h6.duchengjiu.top/shop/api_goods.php?page="+page+"&pagesize=12",
+	url:"http://h6.duchengjiu.top/shop/api_goods.php?page="+page+"&pagesize=10",
 	success:function(response){
 			var obj = response;
 //			console.log(obj);
@@ -22,7 +22,7 @@ function showShop(page){
 						+obj.data[i].goods_name+
 						'</h3><p style="height:40px">'
 						+obj.data[i].goods_desc+
-						'</p><p><a href="wupinxiangqing" class="btn btn-primary" role="button">物品详情</a><a href="#" class="btn btn-default" role="button" style="float:right">添加到购物车</a></p></div></div></div>')
+						'</p><p><a href="wupinxiangqing" class="btn btn-primary" role="button">物品详情</a><p class="btn btn-default" id="Btn-default" role="button">添加到购物车</p></p></div></div></div>')
 				}
 		//将全局信号量的锁变为true
 		lock = true;
@@ -57,16 +57,18 @@ function showShop(page){
 		}
 	})
 //	返回顶部
-$("#stick").click(function(){
-	$("body,html").animate({scrollTop:0})
-})
+//$("#stick").click(function(){
+//	$("body,html").animate({scrollTop:0})
+//})
 $(document).scroll(function(){
 	var top = $(document).scrollTop();
 	if ( top > 300) {
 		$("#stick").show()
 	} else{
 		$("#stick").hide()	
-	}	
+	}
+	
+	
 })
 
 //判断是否登陆成功  成功显示用户名
@@ -77,4 +79,26 @@ if(localStorage.getItem("token")){
 $(".nav-button").click(function(){
 	localStorage.clear();
 	$(".navbar-right").html('<li><a href="login.html" >登录</a></li><li><a href="register.html" >注册</a></li>')
+})
+
+//搜索
+$("#Btn").click(function(){
+			var searchStr =  $("#search").val();			
+			console.log(searchStr);			
+			window.location.href = "detail.html?search_text="+searchStr
+			
+	})		
+//添加购物车
+
+var str = location.search.substr(1);
+	
+var goodId = str.split("=");
+
+$("#Btn-default").click(function(){
+	
+	if (!localStorage.getItem("token")) {
+		alert("请先登录您的账号！")
+		location.href = "login.html#callback=" + location.href;
+	}
+	
 })
