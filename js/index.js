@@ -3,7 +3,9 @@ $.get("http://h6.duchengjiu.top/shop/api_cat.php",function(response){
 //			console.log(response);
 	var obj = response;
 	for(var i=0;i<obj.data.length;i++){				
-		$("#dropdown-menu").append('<li id="dropdown-menu-li" style="background:black;"><a style="color:white;text-align:center;border:1px solid white" href="list.html?cat_id='+obj.data[i].cat_id+'">' + obj.data[i].cat_name + '</a></li>');
+		$(".dropdown-menu").append('<li id="dropdown-menu-li" style="background:black;"><a style="color:white;text-align:center;border:1px solid white" href="list.html?cat_id='
+		+obj.data[i].cat_id+
+		'">' + obj.data[i].cat_name + '</a></li>');
 	}
 })
 //商品
@@ -16,17 +18,25 @@ function showShop(page){
 			var obj = response;
 //			console.log(obj);
 			for (var i = 0; i < obj.data.length; i++) {
-				$("#col-num").append('<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" id="col-num"><div class="thumbnail"><img src="'
+				$("#col-num").append('<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" id="col-num" style="margin-left:60px"><div class="thumbnail"><img src="'
 						+obj.data[i].goods_thumb+
 						'" alt="..." class="col-num-img"><div class="caption"><h3 id="caption-h3">'
 						+obj.data[i].goods_name+
 						'</h3><p style="height:40px">'
 						+obj.data[i].goods_desc+
-						'</p><p><a href="wupinxiangqing" class="btn btn-primary" role="button">物品详情</a><p class="btn btn-default" id="Btn-default" role="button">添加到购物车</p></p></div></div></div>')
+						'</p><p><a href="wupinxiangqing" class="btn btn-primary" role="button" style="float:right">物品详情</a></p></div></div></div>')
 				}
+//			console.log($("#Btn-default"))
+//			var This = $("#Btn-default")
+//			carShop(This)
+//			$("#Btn-default").click(function(){
+//				box(1)
+//			})
 		//将全局信号量的锁变为true
 		lock = true;
 	}
+	
+	
 })
 }
 //	懒加载
@@ -57,9 +67,9 @@ function showShop(page){
 		}
 	})
 //	返回顶部
-//$("#stick").click(function(){
-//	$("body,html").animate({scrollTop:0})
-//})
+$("#stick").click(function(){
+	$("body,html").animate({scrollTop:0})
+})
 $(document).scroll(function(){
 	var top = $(document).scrollTop();
 	if ( top > 300) {
@@ -87,18 +97,15 @@ $("#Btn").click(function(){
 			console.log(searchStr);			
 			window.location.href = "detail.html?search_text="+searchStr
 			
-	})		
-//添加购物车
-
-var str = location.search.substr(1);
-	
-var goodId = str.split("=");
-
-$("#Btn-default").click(function(){
-	
+	})	
+//点击购物车时判断是否登录
+$("#dropDown").click(function(){
 	if (!localStorage.getItem("token")) {
-		alert("请先登录您的账号！")
-		location.href = "login.html#callback=" + location.href;
+		alert("请登录后再进行其他操作！")
+		location.href = "login.html#callback"+location.href
 	}
-	
 })
+//购物车数量与添加的物品相同
+var liLength = $("#dropdown-menu li").length
+
+$(".dropdown-toggle").html = '购物车('+liLength+')<span class="caret"></span>'

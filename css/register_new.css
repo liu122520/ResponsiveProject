@@ -1,0 +1,50 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.success{
+	background: green;
+	color: white;
+	font-size: 16px;
+	display: none;
+	}
+			
+.error {
+	background: red;
+	color: white;
+	font-size: 16px;
+	display: none;
+	}
+body{
+	background: url(../img/timg3.jpg);
+	background-repeat: no-repeat;
+	background-size:  100% 180%;	
+}
+.regisrter-style{
+	width: 300px;
+	height: 300px;
+	/*background: red;*/
+	margin: 0 auto;
+	/*background: red;*/
+	margin-top:150px;
+	line-height: 40px;
+	font-size: 18px;	
+}
+.regisrter-style samp{
+	font-size: 24px;
+	font-weight: 800;
+}
+
+
+.regisrter-style p{
+	margin-top: 25px;
+	line-height: 45px;
+	
+}
+input{
+	outline:none;
+}
+#reg{
+	width: 120px;
+	margin-left: 50px;
+}

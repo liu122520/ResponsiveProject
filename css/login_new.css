@@ -1,0 +1,44 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.login-img{
+	width: 100%px;
+	height:800px;
+	padding-top:200px;
+	/*background-color: #1B6D85;*/
+	/*background:url(../img/timg.jpg);*/
+}
+.login-style{
+	width: 300px;
+	height: 300px;
+	margin: 0 auto;	
+	font-size: 18px;
+}
+body{
+	background: url(../img/timg1.jpg);
+	background-repeat: no-repeat;
+	background-size:  100% 100%;
+	/*background-position-x: -20px;
+	background-position-y: -140px;*/
+	
+}
+.login-style samp{
+	font-size: 24px;
+	font-weight: 800;
+}
+.login-img{
+
+	
+}
+input{
+	outline:none;
+}
+.login-style p{
+	margin-top: 25px;
+	line-height: 45px;
+}
+#login{
+	width: 120px;
+	margin-left: 60px;
+}

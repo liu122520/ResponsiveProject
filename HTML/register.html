@@ -1,9 +1,122 @@
 <!DOCTYPE html>
 <html>
-	<head>
+
+	<head lang="zh-CN">
 		<meta charset="UTF-8">
-		<title></title>
+		<title>注册</title>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/register_new.css" />
+		<style type="text/css">
+				
+		</style>
 	</head>
+
 	<body>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-5"></div>
+		<div class="col-lg-7">
+
+		<div class="regisrter-style">
+		<p><samp>创建用户：</samp>
+			<input type="text" name="username" placeholder="请输入用户名" onfocus="this.placeholder=''" onblur="this.placeholder='请输入用户名'"/>
+			<span class="success">用户名可以使用</span>
+			<span class="error">用户名重复！请重新输入</span>
+		</p>
+		<p><samp>创建密码：</samp>
+			<input type="password" name="password" id="Create Password" placeholder="6－20位字符组成，区分大小写" onfocus="this.placeholder=''" onblur="this.placeholder='6－20位字符组成，区分大小写'" />
+		</p>
+		<p><samp>密码确认：</samp>
+			<input type="password" id="confirm password" placeholder="确认密码" onfocus="this.placeholder=''" onblur="this.placeholder='确认密码'" />
+		</p>
+		<p>
+			<input type="button" value="注册" id="reg" />
+		</p>
+		</div>
+		</div>
+	</div>
+		<script src="../js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="../js/jquery.idcode.js"></script>
+		<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+
+		<script type="text/javascript">
+			//用户名验证是否重复
+			$('input[name="username"]').blur(function() {
+
+				var username = $('input[name="username"]').val();
+
+				console.log(username);
+
+				$.ajax({
+					"url": "http://h6.duchengjiu.top/shop/api_user.php",
+					"type": "POST",
+					"dataType": "json",
+					"data": {
+						"status": "check",
+						"username": username
+					},
+					"success":function(response) {
+						console.log(response);
+
+						if(response.code === 0) {
+							//成功后
+							$(".success").show();
+							$(".error").hide();
+						} else if(response.code === 2001) {
+							//失败后
+							$(".error").show();
+							$(".success").hide();
+						}
+
+					}
+				});
+			})
+			//密码和确认密码的判断
+			$("#confirm password").change(function() {
+				if($("#Create Password").val() != $("#confirm password").val()) {
+					$("#Create Password").val("") && $("#confirm password").val("")
+					alert("两次密码输入不一致，请重新输入！")
+				}
+			})
+
+			//			注册验证
+			$("#reg").click(function() {
+
+				var username = $('input[name="username"]').val();
+				var password = $('input[name="password"]').val();
+
+				//				console.log(username,password);
+
+				//验证密码的位数，不符合提示用户
+				if(password.length < 6 || password.length > 20) {
+
+					alert("密码长度应该是6-20位之内！");
+					return;
+				} 
+				//				URL: 协议:// IP：端口/path(路径)/文件夹/文件?查询的参数#哈希
+
+				$.ajax({
+					"url": "http://h6.duchengjiu.top/shop/api_user.php",
+					"type": "POST",
+					"dataType": "json",
+					"data": {
+						"status": "register",
+						"username": username,
+						"password": password
+					},
+					"success": function(response) {
+						console.log(response);
+
+						if(response.code === 0) {
+							alert(response.message);
+							window.location.href = "login.html";
+						}
+					}
+				});
+
+			})
+		</script>
 	</body>
+
 </html>
