@@ -3,13 +3,13 @@ $(function(){
 
 
 //导航栏
-$.get("http://h6.duchengjiu.top/shop/api_cat.php",function(response){
-//			console.log(response);
-	var obj = response;
-	for(var i=0;i<obj.data.length;i++){				
-		$("#dropdown-menu").append('<li style="background: #C0C0C0; "><a href="list.html?cat_id='+obj.data[i].cat_id+'">' + obj.data[i].cat_name + '</a></li>');				
-	}
-})
+//$.get("http://h6.duchengjiu.top/shop/api_cat.php",function(response){
+////			console.log(response);
+//	var obj = response;
+//	for(var i=0;i<obj.data.length;i++){				
+//		$("#dropdown-menu").append('<li style="background: #C0C0C0; "><a href="list.html?cat_id='+obj.data[i].cat_id+'">' + obj.data[i].cat_name + '</a></li>');				
+//	}
+//})
 
 //通过url内容，得到分类id，查询分类商品，并展示到页面中
 		var str = location.search.substr(1);
@@ -38,8 +38,9 @@ function showShop(page){
 						+obj.data[i].goods_name+
 						'</h3><p style="height:40px">'
 						+obj.data[i].goods_desc+
-						'</p><p><a href="wupinxiangqing" class="btn btn-primary" role="button" style="float:right">物品详情</a></p></div></div></div>')
+						'</p><p><a href="detail.html?goods_id='+obj.data[i].goods_id+ '" class="btn btn-primary" role="button" style="float:right">物品详情</a></p></div></div></div>')
 				}
+			console.log(obj.page.page_count)
 			for(var j=0;j<obj.page.page_count;j++){
 				console.log("1");
 				$("#boxCenter").append( $('<span>'+(j+1)+'</span>') );
@@ -64,7 +65,9 @@ function showShop(page){
 	
 	//判断是否登陆成功  成功显示用户名
 	if(localStorage.getItem("token")){
-		$(".navbar-right").html('<li><span>用户名：'+localStorage.getItem("username")+'</span></li><li><span><button class="nav-button">取消登录</button></span></li>')
+		$(".navbar-right").html('<li><span id="navbar-right-span">用户名：'
+		+localStorage.getItem("username")+
+		'</span></li><li><span><button class="nav-button">取消登录</button></span></li> <li class="dropdown" id="dropDown"><a  class="dropdown-toggle" id="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">购物车（0）<span class="caret"></span></a><ul class="dropdown-menu" id="dropdown-menu"></ul></li>')
 	}
 	//点击取消登录
 	$(".nav-button").click(function(){
@@ -82,7 +85,7 @@ function showShop(page){
 		$("#col-num").html("")
 		$("#boxCenter").html("")
 		showShop(page)
-		boxCenter.style.marginLeft = (page-1)*50+"px"	
+		boxCenter.style.marginLeft = (page-1)*60+"px"	
 	})
 	$("#Box-Box").click(function(){
 		
@@ -102,12 +105,19 @@ function showShop(page){
 			$("#col-num").html("")
 			$("#boxCenter").html("")
 			showShop(page)
-			boxCenter.style.marginLeft = (page-1)*60+"px"
+			boxCenter.style.marginLeft = (page-1)*-60+"px"
 		}
 	})
-});
 
+//搜索
+$("#Btn").click(function(){
+			var searchStr =  $("#search").val();			
+			console.log(searchStr);			
+			window.location.href = "detail.html?search_text="+searchStr
+			
+})
 
+})
 
 
 

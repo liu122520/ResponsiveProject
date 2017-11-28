@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>首页</title>
 		<link rel="stylesheet" href="../css/bootstrap.min.css" />
 		<link rel="stylesheet" href="../css/index.css" />
 	</head>
@@ -26,13 +26,13 @@
 		        <li class="active" ><a href="index.html" style="background: #222222; color: white;">首页 <span class="sr-only">(current)</span></a></li>
 		        <li class="active-Btn"></li>
 		        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">商品列表<span class="caret"></span></a>
-		          <ul class="dropdown-menu">
+		          <a href="#" class="dropdown-toggle" id="dropdown-toggle-list" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">商品列表<span class="caret"></span></a>
+		          <ul class="dropdown-menu" id="dropdown-menu-Ul">
 		            
 		          </ul>
 		        </li>
 		      </ul>
-		      <form class="navbar-form navbar-left">
+		      <form class="navbar-form navbar-left" style="margin-top:10px ;">
 		        <p class="search"> 
 					<input type="text" id="search" placeholder="请输入搜索的物品"/>
 					<input type="button" id="Btn" value="搜索"/>
@@ -42,13 +42,12 @@
 		        <li><a href="login.html" style="color: white;">登录</a></li>
 		        <li><a href="register.html" style="color: white;">注册</a></li>
 		        <li class="dropdown" id="dropDown">
-		          <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">购物车（0）<span class="caret"></span></a>
-		          <ul class="dropdown-menu" id="dropdown-menu">
-		         	<li><a href="#">Action</a></li>
-		            <li><a href="#">Another action</a></li>
-		            <li><a href="#">Something else here</a></li>
-		            <li role="separator" class="divider"></li>
-		            <li><a href="#">Separated link</a></li>
+		          <a  class="dropdown-toggle" id="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">购物车（0）<span class="caret"></span></a>
+		          <ul class="dropdown-menu" id="dropdown-Menu">
+		         	<!--<li class="dropdown-menu-li">
+		         		<img src=""/ style="width: 50px;height: 50px;">
+		         		<p></p>
+		         	</li>-->
 		          </ul>
 		        </li>
 		      </ul>
@@ -69,7 +68,6 @@
 		    
 		  </ol>
 		
-		  <!-- Wrapper for slides -->
 		  <div class="carousel-inner" role="listbox">
 		    <div class="item active">
 		      <img src="../img/0.png" alt="..." width="100%">
@@ -101,13 +99,18 @@
 		</div>
 		
 		<!--热门商品-->
-		<div class="container">
+		<div class="Hot-list">
+			<p>热门商品</p>
+		</div>
+			
+		<div class="container" style="padding-top:20px ;">
 			<div class="row" id="col-num">
 			</div>
 		</div>
 
 		<!--返回顶部-->
 		<div id="stick"><</div>
+		
 	</body>
 	<script src="../js/jquery-3.2.1.js"></script>
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>

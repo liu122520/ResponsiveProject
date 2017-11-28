@@ -40,3 +40,26 @@
 	line-height: 50px;
 	font-size: 45px;
 }
+.navbar-left .search #search{
+	height: 30px;
+	border-radius: 5px ;
+	outline: none;
+}
+.navbar-left .search #Btn{
+	width:50px;
+	height: 30px;
+	border-radius: 5px;
+	background: black;
+	color: white;
+}
+.navbar-right #navbar-right-span{
+	line-height: 50px;
+	color: white;
+}
+
+.navbar-right .nav-button{
+	background: black;
+	color: white;
+	border-radius: 5px;
+	margin: 13px;
+}

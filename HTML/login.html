@@ -7,42 +7,58 @@
 		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/login_new.css"/>
 	</head>
-
+	<style type="text/css">
+		.iframe{
+				width: 100%;
+				height: 100vh;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: -999;
+			}
+	</style>
 	<body>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-lg-5"></div>
-		<div class="col-lg-7">
-		<div class="login-img">
-			<!--<img src="img/timg.jpg"/>-->
-
-		<div class="login-style">
-			<p><samp>登录用户：</samp>
-				<input type="text" name="username" placeholder="请输入用户名"onfocus="this.placeholder=''" onblur="this.placeholder='请输入用户名'" />
-			</p>
-			<p><samp>登录密码：</samp>
-				<input type="password" name="password" placeholder="请输入密码6-20"onfocus="this.placeholder=''" onblur="this.placeholder='请输入密码6-20'" />
-			</p>
-			<p><input type="button" id="login" value="登录" /></p>
-		</div>
-		</div>
-		</div>
-	</div>
+		<iframe id="iframe" class="iframe" src="http://www.jq22.com/demo/TheMatrix201702072353" frameborder="0" width="100%" height="165px">
+        </iframe>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-5"></div>
+				<div class="col-lg-7">
+				<div class="login-img">
+					<!--<img src="img/timg.jpg"/>-->
+		
+				<div class="login-style">
+					<p><samp>登录用户：</samp>
+						<input type="text" name="username" placeholder="请输入用户名"onfocus="this.placeholder=''" onblur="this.placeholder='请输入用户名'" />
+					</p>
+					<p><samp>登录密码：</samp>
+						<input type="password" name="password" placeholder="请输入密码6-20"onfocus="this.placeholder=''" onblur="this.placeholder='请输入密码6-20'" />
+					</p>
+					<p>
+						<input type="button" id="P-login" value="登录" />
+						<a href="register.html"><input type="button" id="P-register" id="" value="注册" /></a>
+					</p>
+					
+				</div>
+				</div>
+				</div>
+			</div>
 		<script src="../js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
 
 		<script type="text/javascript">
 			//判断当前用户名已登录，则返回首页，并提示
-//			if(localStorage.getItem("token")) {
-//				$("body").html("<h1>" + localStorage.getItem("username") + "您已经登录成功了！</h1>")
-//
-//				setTimeout(function() {
-//					location.href = "index.html";
-//				}, 2000);
-//			}
+			if(localStorage.getItem("token")) {
+				$("body").html("<h1>" + localStorage.getItem("username") + "您已经登录成功了！</h1>")
+		
+				setTimeout(function() {
+//					alert("1")
+					location.href = "index.html";
+				}, 2000);
+			}
 
 			//登录验证
-			$("#login").click(function() {
-
+			$("#P-login").click(function() {
+				
 				var username = $('input[name="username"]').val();
 				var password = $('input[name="password"]').val();
 

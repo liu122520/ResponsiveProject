@@ -13,12 +13,12 @@
 	display: block;
 	width: 20%;
 	height: 30px;
-	background: thistle;
+	background: black;
 	float: left;
 	overflow: hidden;
 	text-align: center;
 	line-height: 30px;
-	color: #269ABC;
+	color: white;
 }
 .box-box .Box-Center{
 	width: 60%;
@@ -31,18 +31,18 @@
 .box-box #Box-Box{
 	width: 20%;
 	height: 30px;
-	background: thistle;
+	background: black;
 	float: right;
 	text-align: center;
 	line-height: 30px;
-	color: #269ABC;
+	color: white;
 }
 
 .box-box #boxCenter span{
 	display: block;
 	width: 40px;
 	height: 20px;
-	background: deeppink;
+	background: #564c4c;
 	margin: 5px 10px;
 	float: left;
 	overflow: hidden;
@@ -53,4 +53,27 @@
 .box-box div#boxCenter{
 	overflow: hidden;
 	
+}
+.navbar-right #navbar-right-span{
+	line-height: 50px;
+	color: white;
+}
+
+.navbar-right .nav-button{
+	background: black;
+	color: white;
+	border-radius: 5px;
+	margin: 13px;
+}
+.navbar-left .search #search{
+	height: 30px;
+	border-radius: 5px ;
+	outline: none;
+}
+.navbar-left .search #Btn{
+	width:50px;
+	height: 30px;
+	border-radius: 5px;
+	background: black;
+	color: white;
 }
